@@ -10,12 +10,13 @@ function App() {
       <header className="App-header">
         Software Development FlashCards   
       </header>
-      <div>
-      <FlashCardInput />
-      </div>
+    
       <div>
       <FlashCardList />
       
+      </div>
+      <div>
+      <FlashCardInput />
       </div>
      
 
