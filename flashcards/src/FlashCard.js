@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './FlashCard.css';
 
 const card = (props) => {
     return (
-        <div>
+        <div className="FlashCard">
             <p>{props.title}</p>
         </div>
     )
