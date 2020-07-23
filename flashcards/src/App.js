@@ -23,22 +23,17 @@ class App extends Component {
     this.setState({showCards: !doesShow})
   }
 
+  useStackHandler = (stackIndex) => {
+      const thisStack = this.state.collections.findIndex(p => {
+        return p.id === stackIndex;
+      });
+
+
+  }
+
   
   render() {
-
-    let stacks = null;
-    if (this.state.showCards) {
-      stacks = (
-        <div>
-          {this.state.collections.map(stack => {
-            return <FlashCard 
-              key={stack.id} 
-              title={stack.title}/>
-          })}
-        </div>
-      );
-    }
-   
+     
     return (
       <div className="App">
       <header className="App-header">
@@ -46,14 +41,15 @@ class App extends Component {
       </header>
     
       <div>
-        <button onClick={this.toggleCardsHandler}>
-            Show FlashCards
-        </button>
-        {stacks}
-        
-
-        
-      
+       
+        <div>
+          {this.state.collections.map((stack, index) => {
+            return <FlashCard 
+              click={() => this.useStackHandler(stack.id)}
+              key={stack.id} 
+              title={stack.title}/>
+          })}
+        </div>    
       </div>
       <div>
       <FlashCardInput />
