@@ -1,7 +1,7 @@
 import React from 'react';
 import './FlashCard.css';
 
-const card = (props) => {
+const stack = (props) => {
     return (
         <div className="FlashCard">
             <p>{props.title}</p>
@@ -9,4 +9,4 @@ const card = (props) => {
     )
 };
    
-export default card;
+export default stack;

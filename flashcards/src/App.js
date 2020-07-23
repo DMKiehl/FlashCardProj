@@ -26,12 +26,14 @@ class App extends Component {
   
   render() {
 
-    let cards = null;
+    let stacks = null;
     if (this.state.showCards) {
-      cards = (
+      stacks = (
         <div>
-          {this.state.collections.map(card => {
-            return <FlashCard title={card.title}/>
+          {this.state.collections.map(stack => {
+            return <FlashCard 
+              key={stack.id} 
+              title={stack.title}/>
           })}
         </div>
       );
@@ -47,7 +49,7 @@ class App extends Component {
         <button onClick={this.toggleCardsHandler}>
             Show FlashCards
         </button>
-        {cards}
+        {stacks}
         
 
         
