@@ -33,3 +33,5 @@ export default class FlashCardList extends React.Component {
 
    
 }
+
+export default FlashCardList;
