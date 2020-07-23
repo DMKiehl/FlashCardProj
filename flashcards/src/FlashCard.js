@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Flashcard({ flashcard }) {
+const card = (props) => {
+    return (
+        <div>
+            <p>{props.title}</p>
+        </div>
+    )
+};
    
-        
-
-        
-    
-}
+export default card;
