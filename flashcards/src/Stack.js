@@ -1,10 +1,10 @@
 import React from 'react';
-import './FlashCard.css';
+import './Stack.css';
 
 const stack = (props) => {
     return (
         <div className="FlashCard">
-            <p>{props.title}</p>
+            <p onClick={props.click}>{props.title}</p>
         </div>
     )
 };

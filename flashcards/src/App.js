@@ -2,13 +2,15 @@ import React, {Component} from 'react';
 import './App.css';
 import FlashCardInput from './Components/FlashCardInput';
 import axios from 'axios';
-import FlashCard from './FlashCard';
+import Stack from './Stack';
+
 
 
 class App extends Component {
   state = {
     collections: [],
-    showCards: false
+    showCards: false,
+    stackChoice: []
   };
 
   componentDidMount() {
@@ -18,22 +20,26 @@ class App extends Component {
         });
   }
 
-  toggleCardsHandler = () => {
-    const doesShow = this.state.showCards;
+  toggleCards = () => {
+    const doesShow = this.state.showPersons;
     this.setState({showCards: !doesShow})
   }
 
   useStackHandler = (stackIndex) => {
-      const thisStack = this.state.collections.findIndex(p => {
-        return p.id === stackIndex;
-      });
-
+    
 
   }
 
   
+  
   render() {
-     
+    const style = {
+      backgroundColor: 'white'
+    };
+
+
+
+
     return (
       <div className="App">
       <header className="App-header">
@@ -41,15 +47,22 @@ class App extends Component {
       </header>
     
       <div>
+        <div>
+          <p>Please choose a category!</p>
+        </div>
        
         <div>
           {this.state.collections.map((stack, index) => {
-            return <FlashCard 
+            return <Stack 
+              style={style}
               click={() => this.useStackHandler(stack.id)}
               key={stack.id} 
               title={stack.title}/>
           })}
-        </div>    
+        </div> 
+        <div>
+
+        </div>   
       </div>
       <div>
       <FlashCardInput />
@@ -61,6 +74,6 @@ class App extends Component {
   } 
   
     
-}
 
+}
 export default App;
