@@ -3,14 +3,16 @@ import './App.css';
 import axios from 'axios';
 import Stack from './Components/Stack';
 import 'bootstrap/dist/css/bootstrap.css';
-import Cards from './Components/Cards';
+import Card from './Components/Card';
 
 
 
 class App extends Component {
   state = {
     collections: [],
-    showCards: false
+    showCards: false,
+    cardNumber: 1,
+    cardTotal: 0
 
   };
 
@@ -27,8 +29,14 @@ class App extends Component {
     this.setState({stackChoice: stack});
 
   };
+
+  handleCardChange = (cardNumber) => {
+    console.log(cardNumber);
+      this.setState({cardNumber: cardNumber + 1});
+  };
   
   render() {
+
    
     return (
       <div>
@@ -48,7 +56,7 @@ class App extends Component {
           </div> 
           <div className='col'>
                 
-                {this.state.showCards && <Cards stackChoice={this.state.stackChoice}/>}
+                {this.state.showCards && <Card stackChoice={this.state.stackChoice} cardNumber={this.state.cardNumber} onCardChange={this.handleCardChange}/>}
           </div>
      
   

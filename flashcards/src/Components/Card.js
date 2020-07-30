@@ -2,15 +2,17 @@ import React from 'react';
 import './cards.css';
 
 const Card = (props) => {
-    console.log(props)
+    const card = props.stackChoice.cards.filter(c => c.id === props.cardNumber);
+    console.log(props);
+    console.log(card);
     return (
-        <div className="Cards">
+        <div onClick={() => props.onCardChange(props.cardNumber)} className="Cards">
             <p>
-                {props.name}
+                {card[0].word}
              
             </p>
             <p>
-                {props.definition}
+                {card[0].definition}
             </p>
         </div>
     );
