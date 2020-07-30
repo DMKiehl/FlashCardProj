@@ -11,7 +11,7 @@ class App extends Component {
   state = {
     collections: [],
     showCards: false,
-    cardNumber: 1,
+    index: 0,
     cardTotal: 0
 
   };
@@ -24,15 +24,20 @@ class App extends Component {
   }
 
   handleStackChoice = (stack) => {
-    console.log(stack);
+    let count = stack.cards.length;
     this.setState({showCards: true});
+    this.setState({index: 0});
     this.setState({stackChoice: stack});
+    this.setState({cardTotal: count})
+
 
   };
 
-  handleCardChange = (cardNumber) => {
-    console.log(cardNumber);
-      this.setState({cardNumber: cardNumber + 1});
+  handleCardChange = (index) => {
+    if (index === this.state.cardTotal - 1) {
+      this.setState({showCards: false});
+    }
+      this.setState({index: index + 1});
   };
   
   render() {
@@ -56,7 +61,7 @@ class App extends Component {
           </div> 
           <div className='col'>
                 
-                {this.state.showCards && <Card stackChoice={this.state.stackChoice} cardNumber={this.state.cardNumber} onCardChange={this.handleCardChange}/>}
+                {this.state.showCards && <Card stackChoice={this.state.stackChoice.cards} index={this.state.index} onCardChange={this.handleCardChange}/>}
           </div>
      
   
