@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import './App.css';
-import FlashCardInput from './Components/FlashCardInput';
 import axios from 'axios';
-import Stack from './Stack';
+import Stack from './Components/Stack';
+import 'bootstrap/dist/css/bootstrap.css';
+import Cards from './Components/Cards';
 
 
 
 class App extends Component {
   state = {
     collections: [],
-    showCards: false,
-    stackChoice: []
+    showCards: false
+
   };
 
   componentDidMount() {
@@ -20,56 +21,40 @@ class App extends Component {
         });
   }
 
-  toggleCards = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({showCards: !doesShow})
-  }
+  handleStackChoice = (stack) => {
+    console.log(stack);
+    this.setState({showCards: true});
+    this.setState({stackChoice: stack});
 
-  useStackHandler = (stackIndex) => {
-    
-
-  }
-
-  
+  };
   
   render() {
-    const style = {
-      backgroundColor: 'white'
-    };
-
-
-
-
+   
     return (
-      <div className="App">
-      <header className="App-header">
-        Software Development FlashCards   
-      </header>
+      <div>
+          <header className="App-header">
+          Software Development FlashCards   
+        </header>
     
-      <div>
-        <div>
-          <p>Please choose a category!</p>
-        </div>
-       
-        <div>
-          {this.state.collections.map((stack, index) => {
-            return <Stack 
-              style={style}
-              click={() => this.useStackHandler(stack.id)}
-              key={stack.id} 
-              title={stack.title}/>
-          })}
-        </div> 
-        <div>
-
-        </div>   
-      </div>
-      <div>
-      <FlashCardInput />
-      </div>
+        <div className="row">  
+          <div className='col-4'>
+            <p className="title">Please choose a category!</p>
+              {this.state.collections.map((stack, index) => {
+                return <Stack
+                  click={() => this.handleStackChoice(stack)}
+                  key={stack.id} 
+                  title={stack.title}/>
+                })}
+          </div> 
+          <div className='col'>
+                
+                {this.state.showCards && <Cards stackChoice={this.state.stackChoice}/>}
+          </div>
      
   
-    </div>
+        </div>
+      </div>
+        
     );
   } 
   
