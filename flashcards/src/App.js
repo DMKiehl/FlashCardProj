@@ -14,7 +14,8 @@ class App extends Component {
     collections: [],
     showCards: false,
     index: 0,
-    cardTotal: 0
+    cardTotal: 0,
+    color: 'lightblue'
 
   };
 
@@ -30,7 +31,8 @@ class App extends Component {
     this.setState({showCards: true});
     this.setState({index: 0});
     this.setState({stackChoice: stack});
-    this.setState({cardTotal: count})
+    this.setState({cardTotal: count});
+   
 
 
   };

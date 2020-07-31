@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Stack.css';
 
-const Stack = (props) => {
-    return (
-        <div className="FlashCard">
-            <p onClick={props.click}>
-                {props.title}
-            </p>
-        </div>
+class Stack extends Component {
+    state ={
+        color: 'lightblue'
+    }
+   
 
-    );
-}
+    render() {
+
+        return (
+            <div style={{backgroundColor: this.props.color }}className="FlashCard">
+                <p onClick={this.props.click}>
+                    {this.props.title}
+                </p>
+            </div>
+    
+        );
+    }
+    }
+  
  
 export default Stack;
