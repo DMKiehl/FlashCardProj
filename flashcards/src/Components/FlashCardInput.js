@@ -54,13 +54,13 @@ class FlashCardInput extends Component {
     render() {
         return (
          <form onSubmit={this.handleSubmit}>
-             <label>Word:
+             <label className='m-4'>Word: 
                  <input type="text" name="word" onChange={this.handleWordChange}/>
              </label>
-             <label>Definition:
+             <label className='m-4'>Definition: 
                  <input type="text" name="definition" onChange={this.handleDefinitionChange}/>
              </label>
-             <label>Collection:
+             <label className='m-4'>Collection: 
                 <input type="text" name="title" onChange={this.handleCollectionChange}/>
              </label>
              <button type="submit">Add</button>

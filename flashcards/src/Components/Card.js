@@ -8,7 +8,7 @@ const Card = (props) => {
     
     return (
         <div>
-             <div onClick={() => props.onCardChange(props.index)} className="Cards">
+             <div className="Cards">
                 <p>
                     {props.stackChoice[props.index].word}            
                 </p>
@@ -17,9 +17,11 @@ const Card = (props) => {
                 </p>            
             </div>
             <div>
-                <p className="Number">
-                    {props.index + 1} / {props.cardTotal}
+                
+                <p className="Number"><button onClick={() => props.onCardPrevious(props.index)} className="btn btn-primary m-5">Previous</button>
+                    {props.index + 1} / {props.cardTotal}  <button onClick={() => props.onCardNext(props.index)} className="btn btn-primary m-5">Next</button>
                 </p>
+               
             </div>
         </div>
        

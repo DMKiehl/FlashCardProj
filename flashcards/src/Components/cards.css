@@ -1,12 +1,18 @@
 .Cards {
-    height: 200px;
+    height: 800px;
     margin: 50px auto;
     border: 1px solid black;
     box-shadow: 0 2px 3px black;
     padding: 50px;
     text-align: center;
+    padding-top: 300px;
+    font-size: 20pt;
 }
 
 .Number {
     text-align: center;
+}
+
+.button {
+    margin-left: 40px;
 }

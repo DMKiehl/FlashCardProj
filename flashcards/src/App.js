@@ -35,12 +35,19 @@ class App extends Component {
 
   };
 
-  handleCardChange = (index) => {
+  handleCardNext = (index) => {
     if (index === this.state.cardTotal - 1) {
       this.setState({showCards: false});
     }
       this.setState({index: index + 1});
   };
+
+  handleCardPrevious = (index) => {
+    if (index === 0) {
+      this.setState({showCards: false});
+    }
+    this.setState({index: index - 1});
+  }
   
   render() {
 
@@ -50,6 +57,10 @@ class App extends Component {
           <header className="App-header">
           Software Development FlashCards   
         </header>
+        <div className='Add'>
+          <h4>Add a Flash Card to a Collection: </h4>
+          <FlashCardInput collections={this.state.collections} />
+        </div>
     
         <div className="row">  
           <div className='col-4'>
@@ -61,17 +72,17 @@ class App extends Component {
                   title={stack.title}/>
                 })}
           </div> 
+          <div className='col-1'>
+
+          </div>
           <div className='col-6'>
                 
-                {this.state.showCards && <Card stackChoice={this.state.stackChoice.cards} index={this.state.index} onCardChange={this.handleCardChange} cardTotal={this.state.cardTotal}/>}
+                {this.state.showCards && <Card stackChoice={this.state.stackChoice.cards} index={this.state.index} onCardPrevious={this.handleCardPrevious} onCardNext={this.handleCardNext} cardTotal={this.state.cardTotal}/>}
           </div>
      
   
         </div>
-        <div>
-          <h3>Add a Flash Card to a Collection: </h3>
-          <FlashCardInput collections={this.state.collections} />
-        </div>
+       
       </div>
         
     );
