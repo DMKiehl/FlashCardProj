@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightblue;
 }
 
 .App-logo {
@@ -16,9 +17,19 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  padding: 10px;
 }
 
 .title {
   text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16pt;
+}
+.row {
+  background-color: lightblue;
 }
 
+.col-4 {
+  margin-left: 30px;
+}

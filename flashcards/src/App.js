@@ -4,6 +4,8 @@ import axios from 'axios';
 import Stack from './Components/Stack';
 import 'bootstrap/dist/css/bootstrap.css';
 import Card from './Components/Card';
+import FlashCardInput from './Components/FlashCardInput';
+
 
 
 
@@ -59,12 +61,16 @@ class App extends Component {
                   title={stack.title}/>
                 })}
           </div> 
-          <div className='col'>
+          <div className='col-6'>
                 
-                {this.state.showCards && <Card stackChoice={this.state.stackChoice.cards} index={this.state.index} onCardChange={this.handleCardChange}/>}
+                {this.state.showCards && <Card stackChoice={this.state.stackChoice.cards} index={this.state.index} onCardChange={this.handleCardChange} cardTotal={this.state.cardTotal}/>}
           </div>
      
   
+        </div>
+        <div>
+          <h3>Add a Flash Card to a Collection: </h3>
+          <FlashCardInput collections={this.state.collections} />
         </div>
       </div>
         
